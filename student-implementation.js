@@ -339,19 +339,19 @@ function showEndGameModal(won, targetWord) {
     // TODO: Create appropriate message based on won parameter
     // HINT: For wins, include number of guesses used
     // HINT: For losses, reveal the target word
-    let message=null;
+    updateStats(won, currentRow+1);
+
     if (won) {
-        const messages = ["WOWWWW", "DUBSSSS", "Amazingggg", "Yayyyyy", "Niceeee", "Bruh i was worried for a sec"];
-        message= messages[currentRow];
+        //const messages = ["WOWWWW", "DUBSSSS", "Amazingggg", "Yayyyyy", "Niceeee", "Bruh i was worried for a sec"];
+        showModal(true, targetWord, currentRow+1);
     } else {
-        message = `😂😂😢 the word was ${targetWord}`;
-    }
+        showModal(false, targetWord, 0);
     // TODO: Update statistics
     // HINT: Use updateStats() function
-    updateStats(won, currentRow+1);
+    }
     // TODO: Show the modal
     // HINT: Use showModal() function
-    showModal(message,targetWord);
+    //showModal(message);
     console.log('Showing end game modal. Won:', won, 'Word:', targetWord); // Remove this line
 }
 
